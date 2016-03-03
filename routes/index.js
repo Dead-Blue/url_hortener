@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 require('../model/url.js');
 var UrlModel = mongoose.model('Url')
 /* GET home page. */
-router.get('*', function(req, res, next) {
+router.get('/', function(req, res, next) {
   var url = req.url;
   url='http://'+req.headers.host+'/'+url.slice(1);
   UrlModel.findOne({short_url:url}).exec(function (err,urls) {
